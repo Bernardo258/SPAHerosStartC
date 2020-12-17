@@ -1,0 +1,29 @@
+<h1>Insertar</h1>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <form (ngSubmit)="registrar(forma)" #forma="ngForm">
+            <h1>Registro de Heroes</h1>
+            <hr>
+            <div class="input-group-prepend">
+                <span class="input-group-text col-1">Id</span>
+                <input type="text" class="form-control" name="id" [(ngModel)]="insertar._id" required />
+            </div><br>
+            <div class="input-group-prepend">
+                <span class="input-group-text col-1">Nombre</span>
+                <input type="text" class="form-control" name="nombre" [(ngModel)]="insertar.nombre" required/>
+            </div><br>
+            <div class="input-group-prepend">
+                <span class="input-group-text col-1">Bio</span>
+                <input type="text" class="form-control" name="bio" [(ngModel)]="insertar.bio" />
+            </div><br>
+            <div class="input-group-prepend">
+                <span class="input-group-text col-1">Aparicion</span>
+                <input type="text" class="form-control" name="aparicion" [(ngModel)]="insertar.aparicion" required/>
+            </div> <br>
+            <div class="input-group-prepend">
+                <span class="input-group-text col-1">Casa</span>
+                <input type="text" class="form-control" name="casa" [(ngModel)]="insertar.casa" required/>
+            </div> <br>
+            <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+        </form>
+    </div>

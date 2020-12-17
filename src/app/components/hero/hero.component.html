@@ -1,9 +1,12 @@
-
 <div>
     <div class="row">
         <h2 class="col-10">{{hero.nombre}} - <small>{{hero.aparicion}}</small></h2>
         <div class="col-2">
             <button [routerLink]="['/heros']" class="btn btn-outline-warning btn-block">Regresar</button>
+            <button class="btn btn-outline-danger btn-block" (click)="elimiar(hero._id)">Eliminar</button>
+            <button type="button" class="btn btn-outline-info btn-block" (click)="dispararActualizar(hero._id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Actualizar
+              </button>
         </div>
     </div>
 
@@ -20,3 +23,40 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar de Heroe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container mt-5">
+                    <div class="jumbotron">
+                        <form (ngSubmit)="actualizar(forma)" #forma="ngForm">
+                            <h1>Registro de Heroes</h1>
+                            <hr>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text col-1">Nombre</span>
+                                <input type="text" class="form-control" name="nombre" [(ngModel)]="HeroeM.nombre" required/>
+                            </div><br>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text col-1">Bio</span>
+                                <input type="text" class="form-control" name="bio" [(ngModel)]="HeroeM.bio" />
+                            </div><br>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text col-1">Aparicion</span>
+                                <input type="text" class="form-control" name="aparicion" [(ngModel)]="HeroeM.aparicion" required/>
+                            </div> <br>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text col-1">Casa</span>
+                                <input type="text" class="form-control" name="casa" [(ngModel)]="HeroeM.casa" required/>
+                            </div> <br>
+                            <button type="submit" class="btn btn-block btn-primary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -13,7 +13,11 @@ import { AboutComponent } from './components/about/about.component';
 import { provideRoutes, RouterModule } from '@angular/router';
 import { Error404Component } from './components/error404/error404.component';
 import { HeroComponent } from './components/hero/hero.component';
-import { BuscadorComponent } from './components/buscador/buscador.component'
+import { BuscadorComponent } from './components/buscador/buscador.component';
+import { InsertarComponent } from './components/insertar/insertar.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,19 +29,24 @@ import { BuscadorComponent } from './components/buscador/buscador.component'
     AboutComponent,
     Error404Component,
     HeroComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    InsertarComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'heros', component: HerosComponent},
+    {path: 'insertar', component: InsertarComponent},
     {path: 'about', component: AboutComponent},
     {path: 'hero/:id', component: HeroComponent},
     {path: 'results/:termino', component:BuscadorComponent},
     {path: '**', pathMatch: 'full', component: Error404Component} 
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
